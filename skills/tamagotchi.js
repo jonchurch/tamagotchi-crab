@@ -12,6 +12,7 @@ module.exports = function(controller) {
     
     var action = message.text;
     var status;
+    var gif
     
     bot.startConversation(message, function(err, convo) {
         
@@ -69,7 +70,7 @@ module.exports = function(controller) {
       convo.say({"attachment":{
       "type":"image",
       "payload":{
-        "url":"http://i.imgur.com/1yyWa4X.gif"
+        "url": tamagotchi.gif.IDLE
       }
     }})
     convo.say(tamagotchi.getStatus())
