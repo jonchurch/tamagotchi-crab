@@ -70,9 +70,10 @@ module.exports = function(controller) {
       convo.say({"attachment":{
       "type":"image",
       "payload":{
-        "url": tamagotchi.gif.IDLE
+        "url": tamagotchi.awake ? tamagotchi.gif.IDLE : tamagotchi.gif.ASLEEP
       }
     }})
+      console.log('awake:', tamagotchi.awake)
     convo.say(tamagotchi.getStatus())
     console.log(status);
     var replyMessage = {
