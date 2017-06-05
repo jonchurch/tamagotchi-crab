@@ -57,7 +57,7 @@ module.exports = function(controller) {
         }
       }
     }
-    var aiSimulation = tamagotchi.aiSimulate();
+    var aiSimulation = tamagotchi.aiSimulate(bot, message);
     console.log(status);
     bot.reply(message, status);
     
