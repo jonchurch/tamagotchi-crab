@@ -61,7 +61,13 @@ module.exports = function(controller) {
     var aiSimulation = tamagotchi.aiSimulate(bot, message);
     
     // indicate happiness and poop status
-    convo.say(message, tamagotchi.getStatus())
+      convo.say({"attachment":{
+      "type":"image",
+      "payload":{
+        "url":"http://i.imgur.com/1yyWa4X.gif"
+      }
+    }})
+    convo.say(tamagotchi.getStatus())
     console.log(status);
     var replyMessage = {
       text: status,
@@ -84,7 +90,7 @@ module.exports = function(controller) {
         
       ]
     }
-    convo.say(message, replyMessage);
+    convo.say(replyMessage);
     
     })
   })
