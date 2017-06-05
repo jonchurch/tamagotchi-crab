@@ -1,13 +1,20 @@
 var Tamagotchi = require('../lib/tamagotchi.js')
+var util = require('util')
+var config = require('../lib/config.js')
 
 module.exports = function(controller) {
+  var tamagotchi, 
+        pet = config.actions.pet,
+        food = config.actions.food
   
   controller.on('message_received', function(bot, message) {
     
-    
+    console.log('===pet', pet)
     
     var action = message.text;
     var status;
+    
+    
 
     // check whether our pet has already been created
     if (tamagotchi == undefined) {
@@ -52,7 +59,7 @@ module.exports = function(controller) {
     }
     var aiSimulation = tamagotchi.aiSimulate();
     console.log(status);
-    reply(message.twiml(status));
+    bot.reply(message, status);
     
   })
   
