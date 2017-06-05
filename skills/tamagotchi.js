@@ -1,6 +1,7 @@
 var Tamagotchi = require('../lib/tamagotchi.js')
 var util = require('util')
 var config = require('../lib/config.js')
+var sillyname = require('sillyname')
 
 module.exports = function(controller) {
   var tamagotchi, 
@@ -9,19 +10,19 @@ module.exports = function(controller) {
   
   controller.on('message_received', function(bot, message) {
     
-    console.log('===pet', pet)
-    
     var action = message.text;
     var status;
     
     bot.startConversation(message, function(err, convo) {
-      
+        
 
     // check whether our pet has already been created
     if (tamagotchi == undefined) {
       // if our tamagotchi still hasn't been created we will create one
-      tamagotchi = new Tamagotchi(sillyname., pet, food);
-      status = util.format('Hello, my name is %s and I was just born. Do you wanna play?', action);
+      var randomName = sillyname()
+      tamagotchi = new Tamagotchi(randomName, pet, food);
+      
+      status = util.format('Hello, my name is %s and I was just born. Do you wanna play?', randomName);
     } else {
       // check if our pet is awake, we don't want to wake it up
       if (!tamagotchi.awake && action.toLowerCase() != "wake") {
@@ -55,6 +56,8 @@ module.exports = function(controller) {
             break;
           case ("debug"):
             status = tamagotchi.getState()
+            console.log('STATE', status)
+            break;
           default:
             status = "Your tamagotchi needs your help to grow up strong";
         }
