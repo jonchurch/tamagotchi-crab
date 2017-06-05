@@ -102,6 +102,7 @@ module.exports = function(controller) {
         
       ]
     }
+    convo.say(tamagotchi.getState())
     convo.say(replyMessage);
     
     })
