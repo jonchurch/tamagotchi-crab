@@ -13,7 +13,8 @@
     "debug": "^2.6.8",
     "express": "^4.15.3",
     "request": "^2.81.0",
-    "wordfilter": "^0.2.6"
+    "wordfilter": "^0.2.6",
+    "sillyname": "^0.1.0"
   },
   "devDependencies": {},
   "repository": {

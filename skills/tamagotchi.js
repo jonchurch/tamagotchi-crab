@@ -20,7 +20,7 @@ module.exports = function(controller) {
     // check whether our pet has already been created
     if (tamagotchi == undefined) {
       // if our tamagotchi still hasn't been created we will create one
-      tamagotchi = new Tamagotchi(action, pet, food);
+      tamagotchi = new Tamagotchi(sillyname., pet, food);
       status = util.format('Hello, my name is %s and I was just born. Do you wanna play?', action);
     } else {
       // check if our pet is awake, we don't want to wake it up
@@ -53,6 +53,8 @@ module.exports = function(controller) {
           case ("happy"):
             status = tamagotchi.checkHappiness();
             break;
+          case ("debug"):
+            status = tamagotchi.getState()
           default:
             status = "Your tamagotchi needs your help to grow up strong";
         }
