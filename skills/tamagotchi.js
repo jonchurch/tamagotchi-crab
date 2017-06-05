@@ -92,6 +92,11 @@ module.exports = function(controller) {
           title: tamagotchi.awake ? 'Sleep' : 'Wake',
           payload: ''
         },
+        {
+          content_type: 'text',
+          title: 'Poo',
+          payload: ''
+        },
         
       ]
     }
