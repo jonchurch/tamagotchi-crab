@@ -1,34 +1,34 @@
 {
-	"name": "botkit-studio-starter",
-	"version": "0.0.1",
-	"description": "A starter kit for building a custom bot with Botkit Studio",
-	"main": "bot.js",
-	"scripts": {
-		"start": "node bot.js"
-	},
-	"dependencies": {
-		"body-parser": "^1.15.2",
-		"botkit": "^0.4.9",
-		"dashbot": "^0.8.2",
-		"debug": "^2.6.0",
-		"express": "^4.14.0",
-		"request": "^2.79.0",
-		"wordfilter": "^0.2.6"
-	},
-	"devDependencies": {},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/howdyai/botkit-studio-starter.git"
-	},
-	"bugs": {
-		"url": "https://github.com/howdyai/botkit-studio-starter/issues"
-	},
-	"homepage": "https://github.com/howdyai/botkit-studio-starter",
-	"keywords": [
-		"bots",
-		"chatbots",
-		"slack"
-	],
-	"author": "ben@howdy.ai",
-	"license": "ISC"
+  "name": "botkit-studio-starter",
+  "version": "0.0.1",
+  "description": "A starter kit for building a custom bot with Botkit Studio",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "botkit": "^0.5.4",
+    "dashbot": "^9.0.0",
+    "debug": "^2.6.8",
+    "express": "^4.15.3",
+    "request": "^2.81.0",
+    "wordfilter": "^0.2.6"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/howdyai/botkit-studio-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/howdyai/botkit-studio-starter/issues"
+  },
+  "homepage": "https://github.com/howdyai/botkit-studio-starter",
+  "keywords": [
+    "bots",
+    "chatbots",
+    "slack"
+  ],
+  "author": "ben@howdy.ai",
+  "license": "ISC"
 }
