@@ -53,13 +53,34 @@ module.exports = function(controller) {
             status = tamagotchi.checkHappiness();
             break;
           default:
-            status = "Actions: play, feed, sleep, wake, poo\nStatus: age, hungry, happy";
+            status = "Your tamagotchi needs your help to grow up strong";
         }
       }
     }
     var aiSimulation = tamagotchi.aiSimulate(bot, message);
     console.log(status);
-    bot.reply(message, status);
+    var replyMessage = {
+      text: status,
+      quick_replies: [
+        {
+          content_type: 'text',
+          title: 'Feed',
+          payload: ''
+        },
+        {
+          content_type: 'text',
+          title: 'Play',
+          payload: ''
+        },
+        {
+          content_type: 'text',
+          title: tamagotchi.awake ? 'Sleep' : 'Wake',
+          payload: ''
+        },
+        
+      ]
+    }
+    bot.reply(message, replyMessage);
     
   })
   
