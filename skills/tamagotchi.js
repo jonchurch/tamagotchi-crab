@@ -14,7 +14,8 @@ module.exports = function(controller) {
     var action = message.text;
     var status;
     
-    
+    bot.startConversation(message, function(err, convo) {
+      
 
     // check whether our pet has already been created
     if (tamagotchi == undefined) {
@@ -58,6 +59,9 @@ module.exports = function(controller) {
       }
     }
     var aiSimulation = tamagotchi.aiSimulate(bot, message);
+    
+    // indicate happiness and poop status
+    convo.say(message, tamagotchi.getStatus())
     console.log(status);
     var replyMessage = {
       text: status,
@@ -80,8 +84,9 @@ module.exports = function(controller) {
         
       ]
     }
-    bot.reply(message, replyMessage);
+    convo.say(message, replyMessage);
     
+    })
   })
   
 }
