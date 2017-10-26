@@ -19,7 +19,32 @@ module.exports = (controller) => {
 	})
 
 	controller.hears('(.*)', 'message_received, facebook_postback, quick_reply', (bot, message) => {
-		bot.reply(message, '42')
+		if (pet.hunger + pet.bored > 5) {
+			bot.reply(message, "I'm not happy")
+		} else {
+			if (pet.hunger > 4) {
+				bot.reply(message, "I'm starving!")
+			}
+			if (pet.bored > 4) {
+				bot.reply(message, "I'm bored!")
+			}
+		}
+
+		bot.reply(message, {
+			text: pet.print(), 
+			quick_replies: [
+				{
+					type: 'text',
+					title: 'Feed',
+					payload: 'feed'
+				},
+				{
+					type: 'text',
+					title: 'Play',
+					payload: 'Play'
+				}
+
+		]})
 
 	})
 
