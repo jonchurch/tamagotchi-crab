@@ -46,17 +46,19 @@ var controller = Botkit.facebookbot({
 var webserver = require(__dirname + '/components/express_webserver.js')(controller);
 
 // Set up Facebook "thread settings" such as get started button, persistent menu
-require(__dirname + '/components/thread_settings.js')(controller);
+// require(__dirname + '/components/thread_settings.js')(controller);
 
 // Enable Dashbot.io plugin
 require(__dirname + '/components/plugin_dashbot.js')(controller);
 
-require(__dirname + '/skills/tomagotchi.js')(controller)
+require('./skills/tomagotchi.js')(controller)
 
 // var normalizedPath = require("path").join(__dirname, "skills");
 // require("fs").readdirSync(normalizedPath).forEach(function(file) {
 //   require("./skills/" + file)(controller);
 // });
 
+// Start the bot!
+controller.startTicking();
 
 
