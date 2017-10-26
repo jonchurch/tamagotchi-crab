@@ -5,7 +5,7 @@
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js",
-	"tunnel": "ngrok http --subdomain tomagotchi-crab 3000"
+    "tunnel": "ngrok http --subdomain tomagotchi-crab 3000"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
@@ -13,9 +13,10 @@
     "dashbot": "^9.0.0",
     "debug": "^2.6.8",
     "express": "^4.15.3",
+    "node-emoji": "^1.8.1",
     "request": "^2.81.0",
-    "wordfilter": "^0.2.6",
-    "sillyname": "^0.1.0"
+    "sillyname": "^0.1.0",
+    "wordfilter": "^0.2.6"
   },
   "devDependencies": {},
   "repository": {
