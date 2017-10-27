@@ -26,9 +26,7 @@ module.exports = (controller) => {
 	controller.hears('(.*)', 'message_received, facebook_postback, quick_reply', (bot, message) => {
 
 		console.log(pet.print())
-		bot.reply(message, {
-			text: pet.idle(), 
-		})
+		bot.reply(message, pet.idle(message.text))
 	})
 
 }
