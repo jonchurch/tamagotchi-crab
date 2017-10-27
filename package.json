@@ -13,7 +13,7 @@
     "dashbot": "^9.0.0",
     "debug": "^2.6.8",
     "express": "^4.15.3",
-    "node-emoji": "^1.8.1",
+    "node-emoji": "jonchurch/node-emoji",
     "request": "^2.81.0",
     "sillyname": "^0.1.0",
     "wordfilter": "^0.2.6"

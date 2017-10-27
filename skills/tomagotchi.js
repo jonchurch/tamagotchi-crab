@@ -7,7 +7,7 @@ const pet = new Tomagotchi()
 
 module.exports = (controller) => {
 
-	controller.hears(['^feed$', `^${emoji.get('apple')}$`, `^${emoji.get('ramen')}$`], 'message_received, facebook_postback, quick_reply', async (bot, message) => {
+	controller.hears(['^feed$', ...emoji.food ], 'message_received, facebook_postback, quick_reply', async (bot, message) => {
 		const food = emoji.which(message.text)
 
 		await bot.reply(message, pet.feed(food))
