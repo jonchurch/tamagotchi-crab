@@ -41,7 +41,7 @@ module.exports = (controller) => {
 		console.log({images})
 	})
 
-	controller.hears('^play$', 'message_received, facebook_postback, quick_reply', async (bot, message) => {
+	controller.hears(['^play$', ...emoji.activity ], 'message_received, facebook_postback, quick_reply', async (bot, message) => {
 		pet.play()
 		console.log(pet.print())
 		await bot.reply(message, {
