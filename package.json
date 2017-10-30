@@ -1,5 +1,5 @@
 {
-  "name": "botkit-studio-starter",
+  "name": "tamagotchi-crab",
   "version": "0.0.1",
   "description": "A starter kit for building a custom bot with Botkit Studio",
   "main": "bot.js",

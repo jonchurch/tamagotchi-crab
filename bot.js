@@ -50,7 +50,7 @@ var webserver = require(__dirname + '/components/express_webserver.js')(controll
 // Enable Dashbot.io plugin
 require(__dirname + '/components/plugin_dashbot.js')(controller);
 
-require('./skills/tomagotchi.js')(controller)
+require('./skills/tamagotchi.js')(controller)
 
 // var normalizedPath = require("path").join(__dirname, "skills");
 // require("fs").readdirSync(normalizedPath).forEach(function(file) {

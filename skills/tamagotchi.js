@@ -2,8 +2,8 @@
 const emoji = require('node-emoji')
 
 // Create an instance of our pet
-const Tomagotchi= require('../lib/Tomagotchi')
-const pet = new Tomagotchi()
+const Tamagotchi= require('../lib/Tamagotchi')
+const pet = new Tamagotchi()
 var images = []
 
 module.exports = (controller) => {
