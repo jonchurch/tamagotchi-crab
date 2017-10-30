@@ -5,7 +5,7 @@
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js",
-    "tunnel": "ngrok http --subdomain tomagotchi-crab 3000"
+    "tunnel": "ngrok http --subdomain tamagotchi-crab 3000"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
