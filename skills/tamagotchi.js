@@ -25,7 +25,7 @@ module.exports = (controller) => {
 		pet.play()
 		console.log(pet.print())
 		bot.reply(message, {
-			text: 'Played with Pet',
+			text: emoji.get('balloon'),
 		})
 
 	})
@@ -39,6 +39,7 @@ module.exports = (controller) => {
 				url: controller.images.pet
 			}
 		}})
+		bot.reply(message, message.text)
 	})
 
 }
