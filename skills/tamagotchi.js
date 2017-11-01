@@ -32,6 +32,10 @@ module.exports = (controller) => {
 
 	})
 
+	controller.hears(['poo', 'clean', ':shit:'], 'message_received, facebook_postback, quick_reply', (bot, message) => {
+		bot.reply(message, 'Poop!')
+	})
+
 	controller.hears('(.*)', 'message_received, facebook_postback, quick_reply', (bot, message) => {
 		pet.idle(message.text)
 		console.log(pet.print())
