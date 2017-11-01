@@ -27,13 +27,17 @@ module.exports = (controller) => {
 		// console.log('MESSAGE AS IS',JSON.stringify(message))
 		// console.log({foodReg})
 		// console.log('Food:\n', food)
+		console.log(`Message match: \n${message.match}`)
+		const food = message.match[0]
+		console.log({food})
 
-		pet.feed()
+		pet.feed(food)
 
 		bot.reply(message, {attachment: {
 			type: 'image',
 			payload: {
-				attachment_id: controller.images['nom']
+				// attachment_id: controller.images['nom']
+				url: controller.images.nom
 			}
 		}})
 		console.log(pet.print())
@@ -54,7 +58,8 @@ module.exports = (controller) => {
 		bot.reply(message, {attachment: {
 			type: 'image',
 			payload: {
-				attachment_id: controller.images.pet
+				// attachment_id: controller.images.pet
+				url: controller.images.pet
 			}
 		}})
 		// bot.reply(message, )
