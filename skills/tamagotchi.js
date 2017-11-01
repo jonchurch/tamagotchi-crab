@@ -8,45 +8,23 @@ const pet = new Tamagotchi()
 
 module.exports = (controller) => {
 	controller.hears(['^feed$', ...emoji.food ], 'message_received, facebook_postback, quick_reply', (bot, message) => {
-		// Check user input for all food emoji
-		// seperate out food emoji into an array
-		// const food = emoji.which(message.text)
-		
-
-		const foodReg = new RegExp(`/${emoji.food.reduce((a,b) => `${a}|${b}`, 'food')}/g`)
-		// const converted = emoji.unemojify(message.text)
-		// console.log('Converted:\n',JSON.stringify(converted))
-		// const matches = message.text.match(foodReg)
-		// console.log({matches})
-
-		// const food = converted.match(foodReg)
-		// console.log(emoji.food)
-		// bot.reply(message, message.text)
-		// console.log(message.text)
-
-		// console.log('MESSAGE AS IS',JSON.stringify(message))
-		// console.log({foodReg})
-		// console.log('Food:\n', food)
-		console.log(`Message match: \n${message.match}`)
+		// this is only grabbing the first occurence of the first emoji in our list above
 		const food = message.match[0]
-		console.log({food})
-
 		pet.feed(food)
 
 		bot.reply(message, {attachment: {
 			type: 'image',
 			payload: {
-				// attachment_id: controller.images['nom']
 				url: controller.images.nom
 			}
 		}})
 		console.log(pet.print())
 	})
 
-	controller.hears(['^play$', ...emoji.activity ], 'message_received, facebook_postback, quick_reply', async (bot, message) => {
+	controller.hears(['^play$', ...emoji.activity ], 'message_received, facebook_postback, quick_reply', (bot, message) => {
 		pet.play()
 		console.log(pet.print())
-		await bot.reply(message, {
+		bot.reply(message, {
 			text: 'Played with Pet',
 		})
 
@@ -58,11 +36,9 @@ module.exports = (controller) => {
 		bot.reply(message, {attachment: {
 			type: 'image',
 			payload: {
-				// attachment_id: controller.images.pet
 				url: controller.images.pet
 			}
 		}})
-		// bot.reply(message, )
 	})
 
 }
