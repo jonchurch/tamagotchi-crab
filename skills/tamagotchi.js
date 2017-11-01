@@ -18,6 +18,7 @@ module.exports = (controller) => {
 				url: controller.images.nom
 			}
 		}})
+		bot.reply(message, pet.print())
 		console.log(pet.print())
 	})
 
@@ -27,6 +28,7 @@ module.exports = (controller) => {
 		bot.reply(message, {
 			text: emoji.get('balloon'),
 		})
+		bot.reply(message, pet.print())
 
 	})
 
@@ -39,7 +41,7 @@ module.exports = (controller) => {
 				url: controller.images.pet
 			}
 		}})
-		bot.reply(message, message.text)
+		bot.reply(message, pet.print())
 	})
 
 }
