@@ -5,6 +5,7 @@ const matchAll = require('match-all')
 // Create an instance of our pet
 const Tamagotchi= require('../lib/Tamagotchi')
 const pet = new Tamagotchi()
+const POOP = ':shit:'
 
 module.exports = (controller) => {
 	controller.hears(['^feed$', ...emoji.food ], 'message_received, facebook_postback, quick_reply', (bot, message) => {
@@ -32,8 +33,10 @@ module.exports = (controller) => {
 
 	})
 
-	controller.hears(['poo', 'clean', ':shit:'], 'message_received, facebook_postback, quick_reply', (bot, message) => {
-		bot.reply(message, 'Poop!')
+	controller.hears(['poo', 'clean', POOP, ':toilet:'], 'message_received, facebook_postback, quick_reply', (bot, message) => {
+		bot.reply(message,emoji.emojify(':sparkles::thumbsup:'))
+		pet.poo > 0 ? pet.clean_poo() : pet.increase_poo(2)
+
 	})
 
 	controller.hears('(.*)', 'message_received, facebook_postback, quick_reply', (bot, message) => {
@@ -46,6 +49,8 @@ module.exports = (controller) => {
 			}
 		}})
 		bot.reply(message, pet.print())
+		pet.happy >= 90 ? bot.reply(message, emoji.get(':heart:')) : null
+
 	})
 
 }
