@@ -16,13 +16,13 @@ module.exports = (controller) => {
 		const foodReg = new RegExp(`/${emoji.food.reduce((a,b) => `${a}|${b}`, 'food')}/g`)
 		// const converted = emoji.unemojify(message.text)
 		// console.log('Converted:\n',JSON.stringify(converted))
-		const matches = message.text.match(foodReg)
-		console.log({matches})
+		// const matches = message.text.match(foodReg)
+		// console.log({matches})
 
 		// const food = converted.match(foodReg)
 		// console.log(emoji.food)
-		bot.reply(message, message.text)
-		console.log(message.text)
+		// bot.reply(message, message.text)
+		// console.log(message.text)
 
 		// console.log('MESSAGE AS IS',JSON.stringify(message))
 		// console.log({foodReg})
