@@ -52,7 +52,7 @@ module.exports = (controller) => {
 		// }})
 		bot.reply(message, msg)
 		bot.reply(message, pet.print())
-		// pet.happy >= 90 ? bot.reply(message, emoji.get(':heart:')) : null
+		pet.happy >= 90 ? bot.reply(message, emoji.get(':heart:')) : null
 
 	})
 
