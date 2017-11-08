@@ -39,6 +39,7 @@ var controller = Botkit.facebookbot({
     receive_via_postback: true,
     verify_token: process.env.verify_token,
     access_token: process.env.page_token,
+	secondary_app: process.env.secondary_app,
 });
 
 // Set up an Express-powered webserver to expose oauth and webhook endpoints
