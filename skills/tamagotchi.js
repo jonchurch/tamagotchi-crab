@@ -7,11 +7,21 @@ const Tamagotchi= require('../lib/Tamagotchi')
 const pet = new Tamagotchi()
 const POOP = ':shit:'
 
+var catchErrors = (fn) => {
+  return function(bot, message) {
+    return fn(bot, message).catch(err => bot.reply(message, 'Uh oh! Something went wrong'));
+  };
+};
+
 module.exports = (controller) => {
-	controller.hears(['^feed$', ...emoji.food ], 'message_received, facebook_postback, quick_reply', (bot, message) => {
+
+	controller.hears('operator', 'message_received', (bot, message) => {
+		bot.api.pass_thread_control()
+	})
+	controller.hears(['^feed$', ...emoji.food ], 'message_received, facebook_postback, quick_reply', catchErrors(async (bot, message) => {
 		// this is only grabbing the first occurence of the first emoji in our list above
 		const food = message.match[0]
-		const msg = pet.feed(food)
+		const msg = pet.feed.pizza(food)
 
 		// bot.reply(message, {attachment: {
 		// 	type: 'image',
@@ -22,7 +32,7 @@ module.exports = (controller) => {
 		bot.reply(message, pet.print())
 		bot.reply(message, msg)
 		console.log(pet.print())
-	})
+	}))
 
 	controller.hears(['^play$', ...emoji.activity ], 'message_received, facebook_postback, quick_reply', (bot, message) => {
 		const msg = pet.play()
