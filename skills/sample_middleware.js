@@ -3,9 +3,9 @@ const emoji = require('node-emoji')
 
 module.exports = function(controller) {
 
+	// remove unicode emoji and replace with :emoji: codes
 	controller.middleware.normalize.use((bot, message, next) => {
 		message.text = emoji.unemojify(message.text)	
-		console.log('======DEMOJIFY!', message.text)
 
 		next()
 	})
